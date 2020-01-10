@@ -21,6 +21,7 @@ namespace allocators {
         using difference_type = std::ptrdiff_t;
         using is_always_equal = std::false_type;
 
+
         template<class U>
         struct rebind {
             using other = my_allocator<U, ALLOC_SIZE>;

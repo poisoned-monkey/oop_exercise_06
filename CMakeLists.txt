@@ -3,4 +3,4 @@ project(laba_OOP_06)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(laba_OOP_06 main.cpp list.h allocators.h trapeze.h vertex.h containers.h)
+add_executable(laba_OOP_06 main.cpp)
