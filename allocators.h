@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <type_traits>
-#include <queue>
+#include "quenue.h"
 
 namespace allocators {
 
@@ -14,7 +14,7 @@ namespace allocators {
         char* pool_begin; //указатель на начало хранилища
         char* pool_end;//указатель на конец хранилища
         char* pool_tail;//указатель на конец заполненного пространства
-        std::queue<char*> free_blocks;
+        oop::queue<char*> free_blocks;
     public:
         using value_type = T;
         using size_type = std::size_t;
@@ -52,7 +52,7 @@ namespace allocators {
         }
         if (size_t(pool_end - pool_tail) < sizeof(T)) {
             if (free_blocks.size()) {//ищем свободное место в райне отданном пространстве
-                char* ptr = free_blocks.front();
+                char* ptr = free_blocks.top();
                 free_blocks.pop();
                 return reinterpret_cast<T*>(ptr);
             }
